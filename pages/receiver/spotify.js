@@ -1,5 +1,6 @@
 import { Component } from "react";
 import "isomorphic-fetch";
+import logger from "../../services/logger";
 import Link from "next/link";
 import getConfig from "next/config";
 import styles from "../../styles/home.module.scss";
@@ -52,7 +53,7 @@ const getSpotifyPlaylists = async () => {
     return await response.json();
   } catch (error) {
     //do something
-    console.log(error);
+    logger.error(error);
   }
 };
 
@@ -73,7 +74,7 @@ const addTrackToPlaylist = async (playlistId, trackUri) => {
     return await response.json();
   } catch (error) {
     //do something
-    console.log(error);
+    logger.error(error);
   }
 };
 

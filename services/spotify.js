@@ -1,3 +1,4 @@
+import logger from "../services/logger";
 import SpotifyWebApi from "spotify-web-api-node";
 import { parseCookies } from "nookies";
 
@@ -28,7 +29,7 @@ export const getToken = (spotifyCode) => {
           resolve(data.body);
         },
         function (err) {
-          console.log("Something went wrong!", err);
+          logger.error(err);
           reject(err);
         }
       );
@@ -60,6 +61,6 @@ export const playlistHasTrack = async (accessToken, playlistId, trackUri) => {
 
     return trackExists;
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 };

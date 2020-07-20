@@ -10,28 +10,6 @@ var MongoClient = mongodb.MongoClient;
 
 const COLLECTION_BLOCKED_EMAILS = "blockedEmails";
 
-// // probably not need
-// export const createDB = () => {
-//   MongoClient.connect(`${mongo.url}${mongo.databaseName}`, function (err, db) {
-//     if (err) throw err;
-//     console.log("Database created!");
-//     db.close();
-//   });
-// };
-
-// // probably not needed
-// export const createCollection = () => {
-//   MongoClient.connect(mongo.url, function (err, db) {
-//     if (err) throw err;
-//     var dbo = db.db(mongo.databaseName);
-//     dbo.createCollection(COLLECTION_BLOCKED_EMAILS, function (err, res) {
-//       if (err) throw err;
-//       console.log(`${COLLECTION_BLOCKED_EMAILS} created!`);
-//       db.close();
-//     });
-//   });
-// };
-
 export const hashValue = (value) => {
   const hashedValue = crypto.createHash("sha256").update(value).digest("hex");
   return hashedValue;

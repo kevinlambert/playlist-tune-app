@@ -1,3 +1,4 @@
+import logger from "../logger";
 import "isomorphic-fetch";
 
 import getConfig from "next/config";
@@ -32,6 +33,6 @@ export const subscribeConvertKit = async ({ name, email }) => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 };

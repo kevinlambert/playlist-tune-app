@@ -1,4 +1,5 @@
 import "isomorphic-fetch";
+import logger from "../../../services/logger";
 import getConfig from "next/config";
 
 const {
@@ -28,6 +29,6 @@ export default async (req, res) => {
     res.statusCode = 200;
     res.json({ success: data.success, passThreshold });
   } catch (error) {
-    console.log(error);
+    logger.error(error);
   }
 };

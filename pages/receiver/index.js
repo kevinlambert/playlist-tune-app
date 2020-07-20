@@ -1,5 +1,6 @@
 import Head from "next/head";
 import { Component } from "react";
+import logger from "../../services/logger";
 import "isomorphic-fetch";
 import SmartUrl from "../../components/smartUrl";
 import styles from "../../components/receiver.module.scss";
@@ -75,7 +76,7 @@ const authoriseSpotify = (state) => {
     .then(({ authorizeURL }) => {
       window.location.replace(authorizeURL);
     })
-    .catch((error) => console.log(error));
+    .catch((error) => logger.error(error));
 };
 
 const Receiver = () => {

@@ -1,4 +1,5 @@
 import getConfig from "next/config";
+import logger from "../../../../services/logger";
 import { sesSendEmail } from "../../../../services/aws";
 import { smtpSendEmail } from "../../../../services/smtp";
 import { sendGridSendEmail } from "../../../../services/sendgrid";
@@ -68,7 +69,9 @@ export default async (req, res) => {
     if (mail.mailer === CONST_MAILER_SMTP) {
       smtpSendEmail(mailData);
     } else if (mail.mailer === CONST_MAILER_AWSSES) {
-      sesSendEmail(mailData).catch(console.error);
+      sesSendEmail(mailData).catch((error) => {
+        logger.error(error);
+      });
     } else if (mail.mailer === CONST_MAILER_SENDGRID) {
       sendGridSendEmail(mailData);
     }

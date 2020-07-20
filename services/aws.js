@@ -1,3 +1,4 @@
+import logger from "../services/logger";
 import aws from "aws-sdk";
 import AWS_CONFIG from "../aws.config.json";
 
@@ -37,9 +38,9 @@ export const sesSendEmail = ({ from, replyTo, to, subject, text, html }) => {
 
   return sendPromise
     .then(function (data) {
-      // console.log(data.MessageId);
+      // logger.info(data.MessageId);
     })
     .catch(function (err) {
-      console.error(err, err.stack);
+      logger.error(err);
     });
 };

@@ -10,6 +10,7 @@ import SmartUrl from "../components/smartUrl";
 import Meta from "../components/meta";
 import SocialShare from "../components/socialShare";
 import AboutTheArtist from "../components/aboutTheArtist";
+import logger from "../services/logger";
 
 import getConfig from "next/config";
 const {
@@ -86,7 +87,7 @@ const Sender = class sender extends Component {
         //do something to verify email address of the sender
       }
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   }
 
@@ -103,7 +104,7 @@ const Sender = class sender extends Component {
         }
       );
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   }
 
@@ -126,7 +127,7 @@ const Sender = class sender extends Component {
             isEmailAddressBlocked: data.isBlocked,
           });
     } catch (error) {
-      console.log(error);
+      logger.error(error);
       this.setState({ status: EMAIL_SENT_FAILED });
     }
   }
