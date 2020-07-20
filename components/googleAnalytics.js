@@ -9,7 +9,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    ReactGA.pageview(window.location.pathname + window.location.search);
+    ReactGA.pageview(window.location.pathname);
   }
 
   render() {
