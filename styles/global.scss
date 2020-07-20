@@ -1,0 +1,95 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+label {
+  display: block;
+  font-weight: 200;
+}
+
+fieldset {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+legend {
+  font-weight: 400;
+  padding: 0 6px;
+}
+
+input[type="checkbox"] {
+  width: 40px;
+  height: 40px;
+}
+
+.checkboxContainer {
+  display: flex;
+}
+
+select,
+textarea,
+input[type="email"],
+input[type="text"] {
+  height: 38px;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 0px 6px 10px 6px;
+  font-size: 18px;
+  padding: 6px;
+  width: 100%;
+}
+
+textarea {
+  min-height: 80px;
+  height: auto;
+}
+
+.button {
+  color: #fff;
+  background-color: #3a863d;
+  border-radius: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 40px auto;
+  font-size: 24px;
+}
+
+button,
+input[type="submit"] {
+  @extend .button;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.linkButton {
+  cursor: pointer;
+}

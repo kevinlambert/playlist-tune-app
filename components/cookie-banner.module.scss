@@ -1,0 +1,27 @@
+.container {
+  position: fixed;
+  display: flex;
+  bottom: 0;
+  height: 60px;
+  background-color: rgba(0, 0, 0, 0.9);
+  left: 0;
+  right: 0;
+  color: #999999;
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    margin-left: 10px;
+  }
+
+  button {
+    width: 100px;
+    background-color: #999;
+    font-size: 10px;
+    padding: 10px;
+    margin: 0 10px;
+    border: none;
+    color: black;
+  }
+}

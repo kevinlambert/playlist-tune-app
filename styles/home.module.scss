@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.sendButton {
+  display: flex;
+  margin: 10px auto 40px auto !important;
+  justify-content: center;
+}
+
+%message-shared {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.messageContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.message {
+  @extend %message-shared;
+}
+
+.successMessage {
+  @extend %message-shared;
+  color: green;
+}
+
+.failedMessage {
+  @extend %message-shared;
+  color: red;
+}
+
+.exampleEmail {
+  width: 250px;
+  border: 1px solid #dddcdc;
+  border-radius: 10px;
+}
