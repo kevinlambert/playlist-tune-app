@@ -39,7 +39,8 @@
 }
 
 .exampleEmail {
-  width: 250px;
+  max-height: 320px;
+  max-width: 100%;
   border: 1px solid #dddcdc;
   border-radius: 10px;
 }
