@@ -96,7 +96,7 @@ color: white;
 <body>
 <div class="content-container">
 <h1>Hey ${toName},</h1>
-<p>${fromName} wants to slip a song into your playlist.</p>
+<h2>${fromName} wants to slip a song into your playlist.</h2>
 <p>Personal Message:</p>
 </div>
 <pre style="max-width: 300px;margin: auto;background-color: #FEF3A1;min-height: 200px;text-align: left;padding: 10px;">${toMessage}</pre>
