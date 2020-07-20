@@ -170,7 +170,7 @@ const Sender = class sender extends Component {
           <em>Listen here too...</em>
         </p>
         <SmartUrl {...smartUrls} />
-        <h2>Send someone a song message...</h2>
+        <h2>Want to slip the song into someone's playlist?</h2>
         <h3>How it'll look:</h3>
         <div className={styles.container}>
           <img
@@ -184,7 +184,8 @@ const Sender = class sender extends Component {
           <li>Fill in the form below.</li>
           <li>The recipient will get an email with a link.</li>
           <li>
-            Clicking the link will slip the song into their chosen playlist.
+            The link will slip the "Playlist Tune" song into their chosen
+            playlist.
           </li>
         </ol>
 
