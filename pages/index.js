@@ -8,7 +8,6 @@ import { CONST_MAILER_NATIVE } from "../services/constants";
 import { mailToHref } from "../components/email/template";
 import SmartUrl from "../components/smartUrl";
 import Meta from "../components/meta";
-import SocialShare from "../components/socialShare";
 import AboutTheArtist from "../components/aboutTheArtist";
 import logger from "../services/logger";
 
@@ -352,7 +351,6 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Meta />
-      <SocialShare />
       <Sender />
     </div>
   );

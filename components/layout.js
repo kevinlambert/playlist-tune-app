@@ -3,6 +3,7 @@ import styles from "./layout.module.scss";
 import Link from "next/link";
 import CookieBanner from "./cookie-banner";
 import GoogleAnalytics from "./googleAnalytics";
+import SocialShare from "./socialShare";
 
 export const siteTitle = "Playlist Tune";
 
@@ -42,6 +43,7 @@ const Layout = ({ children, router }) => {
             </p>
           </a>
         </Link>
+        <SocialShare />
       </header>
       <main>{children}</main>
       <footer className={styles.footer}>
