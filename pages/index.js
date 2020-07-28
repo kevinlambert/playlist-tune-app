@@ -202,6 +202,46 @@ const Sender = class sender extends Component {
           </ol>
           <form onSubmit={this.handleSubmit}>
             <fieldset>
+              <legend>Recipients Details</legend>
+              <div>
+                <label htmlFor="toName">To Name</label>
+                <input
+                  name="toName"
+                  type="text"
+                  id="toName"
+                  required
+                  data-name="toName"
+                  value={this.state.toName}
+                  onChange={this.handleChange}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="toEmail">To Email</label>
+                <input
+                  name="toEmail"
+                  type="email"
+                  id="toEmail"
+                  required
+                  data-name="toEmail"
+                  value={this.state.toEmail}
+                  onChange={this.handleChange}
+                ></input>
+                <div>
+                  <label htmlFor="toMessage">Message</label>
+                  <textarea
+                    name="toMessage"
+                    type="textarea"
+                    id="toMessage"
+                    rows="6"
+                    required
+                    data-name="toMessage"
+                    value={this.state.toMessage}
+                    onChange={this.handleChange}
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
               <legend>Your Details</legend>
               <div>
                 <label htmlFor="name">Your Name</label>
@@ -210,7 +250,6 @@ const Sender = class sender extends Component {
                   type="text"
                   id="name"
                   autoComplete="name"
-                  autoCapitalize="words"
                   required
                   data-name="fromName"
                   value={this.state.fromName}
@@ -246,47 +285,6 @@ const Sender = class sender extends Component {
                   <br />
                   for email updates and news.
                 </label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend>Recipients Details</legend>
-              <div>
-                <label htmlFor="toName">To Name</label>
-                <input
-                  name="toName"
-                  type="text"
-                  id="toName"
-                  autoCapitalize="words"
-                  required
-                  data-name="toName"
-                  value={this.state.toName}
-                  onChange={this.handleChange}
-                ></input>
-              </div>
-              <div>
-                <label htmlFor="toEmail">To Email</label>
-                <input
-                  name="toEmail"
-                  type="email"
-                  id="toEmail"
-                  required
-                  data-name="toEmail"
-                  value={this.state.toEmail}
-                  onChange={this.handleChange}
-                ></input>
-                <div>
-                  <label htmlFor="toMessage">Message</label>
-                  <textarea
-                    name="toMessage"
-                    type="textarea"
-                    id="toMessage"
-                    rows="6"
-                    required
-                    data-name="toMessage"
-                    value={this.state.toMessage}
-                    onChange={this.handleChange}
-                  ></textarea>
-                </div>
               </div>
             </fieldset>
             {this.sendButton()}
