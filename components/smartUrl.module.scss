@@ -1,9 +1,19 @@
+@import "../styles/responsive.scss";
+
 .smartUrlContainer {
   margin: 20px auto;
   display: flex;
   justify-content: center;
   max-width: 480px;
   flex-wrap: wrap;
+
+  .mobileHide {
+    display: none;
+
+    @include respond-to("small") {
+      display: inherit;
+    }
+  }
 
   a {
     border: 2px solid #e1e1e1;

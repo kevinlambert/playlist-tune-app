@@ -37,7 +37,7 @@ const Layout = ({ children, router }) => {
                 Touch someone today
               </span>
               <br />
-              <span style={{ fontSize: "28px" }}>
+              <span className={styles.callToActionSecondLine}>
                 Slip a song into their playlist
               </span>
             </p>

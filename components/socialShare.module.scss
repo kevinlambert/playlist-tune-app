@@ -1,0 +1,10 @@
+@import "../styles/responsive.scss";
+
+.container {
+  display: none;
+  align-self: flex-end;
+
+  @include respond-to("small") {
+    display: inherit;
+  }
+}

@@ -34,12 +34,22 @@ const Streaming = ({
         </a>
       ) : null}
       {deezerUrl ? (
-        <a name="deezer" href={deezerUrl} target="_blank">
+        <a
+          name="deezer"
+          href={deezerUrl}
+          target="_blank"
+          className={styles.mobileHide}
+        >
           <img src="/music-service_deezer.svg" alt="Listen on Deezer" />
         </a>
       ) : null}
       {tidalUrl ? (
-        <a name="tidal" href={tidalUrl} target="_blank">
+        <a
+          name="tidal"
+          href={tidalUrl}
+          target="_blank"
+          className={styles.mobileHide}
+        >
           <img src="/music-service_tidal.svg" alt="Listen on Tidal" />
         </a>
       ) : null}
@@ -55,17 +65,32 @@ const Download = ({
   return (
     <>
       {bandcampUrl ? (
-        <a name="Bandcamp" href={bandcampUrl} target="_blank">
+        <a
+          name="Bandcamp"
+          href={bandcampUrl}
+          target="_blank"
+          className={styles.mobileHide}
+        >
           <img src="/music-service_bandcamp.svg" alt="Download on Bandcamp" />
         </a>
       ) : null}
       {iTunesStoreUrl ? (
-        <a name="itunes" href={iTunesStoreUrl} target="_blank">
+        <a
+          name="itunes"
+          href={iTunesStoreUrl}
+          target="_blank"
+          className={styles.mobileHide}
+        >
           <img src="/music-service_itunes.svg" alt="Download on iTunes Store" />
         </a>
       ) : null}
       {amazonStoreUrl ? (
-        <a name="Amazon Store" href={amazonStoreUrl} target="_blank">
+        <a
+          name="Amazon Store"
+          href={amazonStoreUrl}
+          target="_blank"
+          className={styles.mobileHide}
+        >
           <img
             src="/music-service_amazonmp3.svg"
             alt="Download on Amazon Store"

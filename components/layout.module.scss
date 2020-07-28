@@ -1,3 +1,5 @@
+@import "../styles/responsive.scss";
+
 .container {
   display: flex;
   max-width: 1024px;
@@ -10,18 +12,28 @@
   align-items: center;
   flex-direction: column;
   background-color: #fdee0b;
-  padding: 10px;
+  padding: 20px;
+
+  @include respond-to("small") {
+    padding: 10px;
+  }
 }
 
 .title {
-  font-size: 48px;
+  font-size: 24px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  margin-top: 0;
   margin-bottom: 0;
   text-align: center;
   color: black;
   text-decoration: none;
+
+  @include respond-to("small") {
+    font-size: 48px;
+    margin-top: auto;
+  }
 }
 
 .stealthLink {
@@ -33,17 +45,29 @@
 }
 
 .callToAction {
-  font-size: 32px;
+  font-size: 18px;
   text-align: center;
   margin: 0;
   font-weight: 300;
   font-style: oblique;
-  padding-bottom: 30px;
+
+  @include respond-to("small") {
+    font-size: 32px;
+    padding-bottom: 30px;
+  }
 }
 
 .callToActionFirstLine {
   font-weight: 500;
   font-style: normal;
+}
+
+.callToActionSecondLine {
+  font-size: 18px;
+
+  @include respond-to("small") {
+    font-size: 32px;
+  }
 }
 
 .footer {
