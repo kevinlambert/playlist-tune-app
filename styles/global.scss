@@ -30,11 +30,15 @@ fieldset {
   border: 1px solid black;
   border-radius: 10px;
   margin-bottom: 20px;
+  background-color: #ffffb4;
 }
 
 legend {
   font-weight: 400;
   padding: 0 6px;
+  background-color: #ff7;
+  border: 1px solid;
+  box-shadow: 3px 3px gray;
 }
 
 input[type="checkbox"] {

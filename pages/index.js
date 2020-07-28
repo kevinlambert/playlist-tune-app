@@ -158,14 +158,10 @@ const Sender = class sender extends Component {
     return (
       <div>
         <div style={{ maxWidth: "480px" }}>
-          <p>
-            <span style={{ fontWeight: 500 }}>Ever missed someone?</span> <br />
-            We share our heart through the words we speak, notes we leave, and
-            messages we send. The{" "}
-            <span style={{ fontStyle: "italic" }}>Playlist Tune</span> song is
-            one of those messages - a musical note left to bring a smile to
-            someone special.
-          </p>
+          <fieldset>
+            <legend style={{ fontWeight: 500 }}>Ever missed someone?</legend>
+            Send a musical message to someone special.
+          </fieldset>
         </div>
         <h2>The Song</h2>
 
