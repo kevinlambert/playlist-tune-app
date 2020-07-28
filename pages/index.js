@@ -47,7 +47,7 @@ const Sender = class sender extends Component {
   handleChange = async (evt) => {
     // This triggers everytime the input is changed
     await this.setState({
-      [evt.target.name]: evt.target.value,
+      [evt.target.dataset.name]: evt.target.value,
     });
   };
 
@@ -170,110 +170,124 @@ const Sender = class sender extends Component {
           <em>Listen here too...</em>
         </p>
         <SmartUrl {...smartUrls} />
-        <h2>Want to slip the song into someone's playlist?</h2>
-        <h3>How it'll look:</h3>
-        <div className={styles.container}>
-          <img
-            className={styles.exampleEmail}
-            src="/email-example.png"
-            alt="Example of the email message"
-          />
-        </div>
-        <h3>How It Works</h3>
-        <ol>
-          <li>Fill in the form below.</li>
-          <li>The recipient will get an email with a link.</li>
-          <li>
-            The link will slip the "Playlist Tune" song into their chosen
-            playlist.
-          </li>
-        </ol>
+        <div className={styles.slipContainer}>
+          <h2>Want to slip the song into someone's playlist?</h2>
+          <h3>How it'll look:</h3>
+          <div className={styles.container}>
+            <img
+              className={styles.exampleEmail}
+              src="/email-example.png"
+              alt="Example of the email message"
+            />
+          </div>
+          <h3>How It Works</h3>
+          <ol>
+            <li>Fill in the form below.</li>
+            <li>The recipient will get an email with a link.</li>
+            <li>
+              The link will slip the "Playlist Tune" song into their chosen
+              playlist.
+            </li>
+          </ol>
 
-        <form onSubmit={this.handleSubmit}>
-          <fieldset>
-            <legend>Your Details</legend>
-            <div>
-              <label htmlFor="fromName">Your Name</label>
-              <input
-                name="fromName"
-                type="text"
-                id="fromName"
-                required
-                value={this.state.fromName}
-                onChange={this.handleChange}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="fromEmail">Your Email</label>
-              <input
-                name="fromEmail"
-                type="email"
-                id="fromEmail"
-                required
-                value={this.state.fromEmail}
-                onChange={this.handleChange}
-              ></input>
-            </div>
-            <div className={"checkboxContainer"}>
-              <input
-                name="subscribeToMailingList"
-                type="checkbox"
-                id="subscribeToMailingList"
-                checked={this.state.subscribeToMailingList}
-                onChange={this.handleCheckBoxChange}
-              ></input>
-              <label htmlFor="subscribeToMailingList">
-                Yes, Subscribe me to KevinLambertMusic.com
-                <br />
-                for email updates and news.
-              </label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Recipients Details</legend>
-            <div>
-              <label htmlFor="toName">To Name</label>
-              <input
-                name="toName"
-                type="text"
-                id="toName"
-                required
-                value={this.state.toName}
-                onChange={this.handleChange}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="toEmail">To Email</label>
-              <input
-                name="toEmail"
-                type="email"
-                id="toEmail"
-                required
-                value={this.state.toEmail}
-                onChange={this.handleChange}
-              ></input>
+          <form onSubmit={this.handleSubmit}>
+            <fieldset>
+              <legend>Your Details</legend>
               <div>
-                <label htmlFor="toMessage">Message</label>
-                <textarea
-                  name="toMessage"
-                  type="textarea"
-                  id="toMessage"
-                  rows="6"
+                <label htmlFor="name">Your Name</label>
+                <input
+                  name="name"
+                  type="text"
+                  id="name"
+                  autoComplete="name"
+                  autoCapitalize="words"
                   required
-                  value={this.state.toMessage}
+                  data-name="fromName"
+                  value={this.state.fromName}
                   onChange={this.handleChange}
-                ></textarea>
+                ></input>
               </div>
-            </div>
-          </fieldset>
-          {this.sendButton()}
-          <Recaptcha
-            ref={(ref) => (this.recaptcha = ref)}
-            sitekey={reCAPTCHA_site_key}
-            onResolved={this.onResolved}
-            badge="inline"
-          />
-        </form>
+              <div>
+                <label htmlFor="email">Your Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  required
+                  data-name="fromEmail"
+                  value={this.state.fromEmail}
+                  onChange={this.handleChange}
+                ></input>
+              </div>
+              <div className={"checkboxContainer"}>
+                <input
+                  name="subscribeToMailingList"
+                  type="checkbox"
+                  id="subscribeToMailingList"
+                  data-name="subscribeToMailingList"
+                  checked={this.state.subscribeToMailingList}
+                  onChange={this.handleCheckBoxChange}
+                ></input>
+                <label
+                  htmlFor="subscribeToMailingList"
+                  className={styles.mailingListLabel}
+                >
+                  Yes, Subscribe me to KevinLambertMusic.com
+                  <br />
+                  for email updates and news.
+                </label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Recipients Details</legend>
+              <div>
+                <label htmlFor="toName">To Name</label>
+                <input
+                  name="toName"
+                  type="text"
+                  id="toName"
+                  autoCapitalize="words"
+                  required
+                  data-name="toName"
+                  value={this.state.toName}
+                  onChange={this.handleChange}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="toEmail">To Email</label>
+                <input
+                  name="toEmail"
+                  type="email"
+                  id="toEmail"
+                  required
+                  data-name="toEmail"
+                  value={this.state.toEmail}
+                  onChange={this.handleChange}
+                ></input>
+                <div>
+                  <label htmlFor="toMessage">Message</label>
+                  <textarea
+                    name="toMessage"
+                    type="textarea"
+                    id="toMessage"
+                    rows="6"
+                    required
+                    data-name="toMessage"
+                    value={this.state.toMessage}
+                    onChange={this.handleChange}
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+            {this.sendButton()}
+            <Recaptcha
+              ref={(ref) => (this.recaptcha = ref)}
+              sitekey={reCAPTCHA_site_key}
+              onResolved={this.onResolved}
+              badge="inline"
+            />
+          </form>
+        </div>
       </div>
     );
   }
