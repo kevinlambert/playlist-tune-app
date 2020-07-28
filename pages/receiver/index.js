@@ -4,6 +4,7 @@ import logger from "../../services/logger";
 import "isomorphic-fetch";
 import SmartUrl from "../../components/smartUrl";
 import styles from "../../components/receiver.module.scss";
+import AboutTheArtist from "../../components/aboutTheArtist";
 
 import getConfig from "next/config";
 const {
@@ -118,6 +119,7 @@ class NotOnPlatform extends Component {
           <div className={"container"}>
             <p>You can listen to the song directly here:</p>
             <SmartUrl {...params} />
+            <AboutTheArtist showLink={true} />
           </div>
         ) : null}
       </div>

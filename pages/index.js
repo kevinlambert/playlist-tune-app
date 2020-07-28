@@ -178,25 +178,24 @@ const Sender = class sender extends Component {
         <div className={"container"}>
           <SpotifyFollow />
         </div>
+        <div style={{ maxWidth: "480px", marginTop: "20px" }}>
+          <p style={{ fontSize: "14px", color: "grey" }}>
+            Created by Singer-Songwriter{" "}
+            <a href="https://kevinlambertmusic.com" target="_blank">
+              Kevin Lambert
+            </a>
+          </p>
+        </div>
         <div className={styles.slipContainer}>
           <h2 className={styles.slipTheSongHeading}>
             You too can slip the song into someone's playlist
           </h2>
-          <div style={{ maxWidth: "480px" }}>
-            <p>
-              Singer-Songwriter{" "}
-              <a href="https://kevinlambertmusic.com" target="_blank">
-                Kevin Lambert
-              </a>{" "}
-              created this website so that you can send a musical message to
-              someone special.
-            </p>
-          </div>
+
           <h3>How It Works</h3>
           <ol>
             <li>Fill in the form below.</li>
             <li style={{ maxWidth: "480px" }}>
-              An email will be sent with a link that slips the{" "}
+              An email will be sent with your message and a link that slips the{" "}
               <span style={{ fontStyle: "italic" }}>Playlist Tune</span> song
               into their chosen playlist.
             </li>
