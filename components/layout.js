@@ -75,6 +75,7 @@ const Layout = ({ children, router }) => {
           <br />
           and you can remove it at any time through your music player.
         </p>
+        <p>This website was created by Singer-Songwriter Kevin Lambert</p>
       </footer>
       <CookieBanner />
     </div>

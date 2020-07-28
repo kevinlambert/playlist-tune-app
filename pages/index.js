@@ -157,6 +157,16 @@ const Sender = class sender extends Component {
   form() {
     return (
       <div>
+        <div style={{ maxWidth: "480px" }}>
+          <p>
+            <span style={{ fontWeight: 500 }}>Ever missed someone?</span> <br />
+            We share our heart through the words we speak, notes we leave, and
+            messages we send. The{" "}
+            <span style={{ fontStyle: "italic" }}>Playlist Tune</span> song is
+            one of those messages - a musical note left to bring a smile to
+            someone special.
+          </p>
+        </div>
         <h2>The Song</h2>
 
         <iframe
@@ -165,13 +175,33 @@ const Sender = class sender extends Component {
           src="https://bandcamp.com/EmbeddedPlayer/track=3887074908/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/"
           seamless
         ></iframe>
-        <AboutTheArtist showLink={true} />
         <p style={{ fontWeight: 600 }}>
           <em>Listen here too...</em>
         </p>
         <SmartUrl {...smartUrls} />
+
         <div className={styles.slipContainer}>
-          <h2>Want to slip the song into someone's playlist?</h2>
+          <h2 className={styles.slipTheSongHeading}>
+            You too can slip the song into someone's playlist
+          </h2>
+          <p>
+            Singer-Songwriter{" "}
+            <a href="https://kevinlambertmusic.com" target="_blank">
+              Kevin Lambert
+            </a>{" "}
+            created this website so that you can send a musical message to
+            someone special. Here's how to slip{" "}
+            <span style={{ fontStyle: "italic" }}>Playlist Tune</span> into
+            their playlist.
+          </p>
+          <h3>How It Works</h3>
+          <ol>
+            <li>Fill in the form below.</li>
+            <li>
+              The recipient will get an email with a link that slips the song
+              into their chosen playlist.
+            </li>
+          </ol>
           <h3>How it'll look:</h3>
           <div className={styles.container}>
             <img
@@ -180,16 +210,7 @@ const Sender = class sender extends Component {
               alt="Example of the email message"
             />
           </div>
-          <h3>How It Works</h3>
-          <ol>
-            <li>Fill in the form below.</li>
-            <li>The recipient will get an email with a link.</li>
-            <li>
-              The link will slip the "Playlist Tune" song into their chosen
-              playlist.
-            </li>
-          </ol>
-
+          <br />
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <legend>Your Details</legend>

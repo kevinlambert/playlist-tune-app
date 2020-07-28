@@ -1,3 +1,5 @@
+@import "./colors";
+
 .container {
   display: flex;
   justify-content: center;
@@ -30,7 +32,7 @@
 
 .successMessage {
   @extend %message-shared;
-  color: green;
+  color: $green;
 }
 
 .failedMessage {
@@ -43,4 +45,14 @@
   max-width: 100%;
   border: 1px solid #dddcdc;
   border-radius: 10px;
+}
+
+.mailingListLabel {
+  font-weight: 300;
+  color: $green;
+}
+
+.slipTheSongHeading {
+  color: rgb(230, 100, 0);
+  font-style: italic;
 }

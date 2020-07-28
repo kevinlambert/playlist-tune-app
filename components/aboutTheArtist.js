@@ -24,9 +24,12 @@ export default class extends Component {
         {this.props.noToggle ? (
           <p style={{ fontWeight: "600" }}>About the Artist</p>
         ) : (
-          <a className="linkButton" onClick={this.toggle}>
-            About the Artist
-          </a>
+          <p>
+            Singer-Songwriter Kevin Lambert created this website{" "}
+            <a className="linkButton" onClick={this.toggle}>
+              ...more
+            </a>
+          </p>
         )}
         <div
           className={styles.text}
