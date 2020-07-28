@@ -8,8 +8,8 @@ import { CONST_MAILER_NATIVE } from "../services/constants";
 import { mailToHref } from "../components/email/template";
 import SmartUrl from "../components/smartUrl";
 import Meta from "../components/meta";
-import AboutTheArtist from "../components/aboutTheArtist";
 import logger from "../services/logger";
+import SpotifyFollow from "../components/spotifyFollow";
 
 import getConfig from "next/config";
 const {
@@ -176,10 +176,12 @@ const Sender = class sender extends Component {
           seamless
         ></iframe>
         <p style={{ fontWeight: 600 }}>
-          <em>Listen here too...</em>
+          <span style={{ fontWeight: 400 }}>Listen here too...</span>
         </p>
         <SmartUrl {...smartUrls} />
-
+        <div className={"container"}>
+          <SpotifyFollow />
+        </div>
         <div className={styles.slipContainer}>
           <h2 className={styles.slipTheSongHeading}>
             You too can slip the song into someone's playlist
@@ -191,28 +193,18 @@ const Sender = class sender extends Component {
                 Kevin Lambert
               </a>{" "}
               created this website so that you can send a musical message to
-              someone special. Here's how to slip{" "}
-              <span style={{ fontStyle: "italic" }}>Playlist Tune</span> into
-              their playlist.
+              someone special.
             </p>
           </div>
           <h3>How It Works</h3>
           <ol>
             <li>Fill in the form below.</li>
             <li style={{ maxWidth: "480px" }}>
-              The recipient will get an email with a link that slips the song
+              An email will be sent with a link that slips the{" "}
+              <span style={{ fontStyle: "italic" }}>Playlist Tune</span> song
               into their chosen playlist.
             </li>
           </ol>
-          <h3>How it'll look:</h3>
-          <div className={styles.container}>
-            <img
-              className={styles.exampleEmail}
-              src="/email-example.png"
-              alt="Example of the email message"
-            />
-          </div>
-          <br />
           <form onSubmit={this.handleSubmit}>
             <fieldset>
               <legend>Your Details</legend>
@@ -303,12 +295,22 @@ const Sender = class sender extends Component {
               </div>
             </fieldset>
             {this.sendButton()}
+
             <Recaptcha
               ref={(ref) => (this.recaptcha = ref)}
               sitekey={reCAPTCHA_site_key}
               onResolved={this.onResolved}
               badge="inline"
             />
+            <h3>How it'll look:</h3>
+            <div className={styles.container}>
+              <img
+                className={styles.exampleEmail}
+                src="/email-example.png"
+                alt="Example of the email message"
+              />
+            </div>
+            <br />
           </form>
         </div>
       </div>
