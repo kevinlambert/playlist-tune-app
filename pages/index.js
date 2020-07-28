@@ -184,20 +184,22 @@ const Sender = class sender extends Component {
           <h2 className={styles.slipTheSongHeading}>
             You too can slip the song into someone's playlist
           </h2>
-          <p>
-            Singer-Songwriter{" "}
-            <a href="https://kevinlambertmusic.com" target="_blank">
-              Kevin Lambert
-            </a>{" "}
-            created this website so that you can send a musical message to
-            someone special. Here's how to slip{" "}
-            <span style={{ fontStyle: "italic" }}>Playlist Tune</span> into
-            their playlist.
-          </p>
+          <div style={{ maxWidth: "480px" }}>
+            <p>
+              Singer-Songwriter{" "}
+              <a href="https://kevinlambertmusic.com" target="_blank">
+                Kevin Lambert
+              </a>{" "}
+              created this website so that you can send a musical message to
+              someone special. Here's how to slip{" "}
+              <span style={{ fontStyle: "italic" }}>Playlist Tune</span> into
+              their playlist.
+            </p>
+          </div>
           <h3>How It Works</h3>
           <ol>
             <li>Fill in the form below.</li>
-            <li>
+            <li style={{ maxWidth: "480px" }}>
               The recipient will get an email with a link that slips the song
               into their chosen playlist.
             </li>
