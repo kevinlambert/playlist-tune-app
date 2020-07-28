@@ -6,7 +6,7 @@ import Recaptcha from "react-google-invisible-recaptcha";
 import styles from "../styles/home.module.scss";
 import { CONST_MAILER_NATIVE } from "../services/constants";
 import { mailToHref } from "../components/email/template";
-import SmartUrl from "../components/smartUrl";
+import SmartUrlIcon from "../components/smartUrl/smartUrlIcon";
 import Meta from "../components/meta";
 import logger from "../services/logger";
 import SpotifyFollow from "../components/spotifyFollow";
@@ -178,7 +178,7 @@ const Sender = class sender extends Component {
         <p style={{ fontWeight: 600 }}>
           <span style={{ fontWeight: 400 }}>Listen here too...</span>
         </p>
-        <SmartUrl {...smartUrls} />
+        <SmartUrlIcon {...smartUrls} />
         <div className={"container"}>
           <SpotifyFollow />
         </div>
