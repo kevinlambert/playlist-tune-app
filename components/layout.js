@@ -4,6 +4,7 @@ import Link from "next/link";
 import CookieBanner from "./cookie-banner";
 import GoogleAnalytics from "./googleAnalytics";
 import SocialShare from "./socialShare";
+import Hotjar from "./hotjar";
 
 export const siteTitle = "Playlist Tune";
 
@@ -78,6 +79,7 @@ const Layout = ({ children, router }) => {
         <p>This website was created by Singer-Songwriter Kevin Lambert</p>
       </footer>
       <CookieBanner />
+      <Hotjar />
     </div>
   );
 };
