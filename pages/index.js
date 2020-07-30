@@ -56,7 +56,16 @@ const Sender = class sender extends Component {
               Slip the song into a friends playlist
             </legend>
             <div>
-              <div style={{ marginBottom: "10px" }}>Share the link:</div>
+              <div style={{ marginBottom: "10px", maxWidth: "400px" }}>
+                <ol>
+                  <li>Click an app below.</li>
+                  <li>A link will be attached to your message.</li>
+                  <li>
+                    When your friend clicks the link the song will be slipped in
+                    their chosen playlist.
+                  </li>
+                </ol>
+              </div>
               <Share msg={this.state.msg} />
             </div>
           </fieldset>
