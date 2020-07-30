@@ -1,0 +1,51 @@
+@import "../../styles/responsive.scss";
+
+.container {
+  display: flex;
+  // justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  width: 45px;
+  height: 45px;
+  padding: 6px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 4px #808080cc;
+  cursor: pointer;
+  margin-left: 20px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include respond-to("large") {
+    display: inherit;
+  }
+}
+
+.deviceOnly {
+  display: inherit;
+
+  @include respond-to("large") {
+    display: none;
+  }
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* CSS specific to iOS devices */
+  .ios {
+    display: none;
+  }
+}
+
+@supports not (-webkit-touch-callout: none) {
+  /* CSS for other than iOS devices */
+  .android {
+    display: none;
+  }
+}

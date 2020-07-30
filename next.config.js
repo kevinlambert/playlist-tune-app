@@ -7,11 +7,13 @@ module.exports = () => {
 
   console.log(`isDev:${isDev}  isProd:${isProd}   isStaging:${isStaging}`);
 
+  const productionServerAddress = "https://playlisttune.com";
+
   const env = {
     SERVER_ADDRESS: (() => {
       if (isDev) return "http://localhost:3000";
       if (isProd) {
-        return "https://playlisttune.com";
+        return productionServerAddress;
       }
       if (isStaging) return "https://playlist-tune-app-11187.nodechef.com";
       return "SERVER_ADDRESS:not (isDev,isProd && !isStaging,isProd && isStaging)";
@@ -50,6 +52,7 @@ module.exports = () => {
     },
     publicRuntimeConfig: {
       serverAddress: env.SERVER_ADDRESS,
+      productionServerAddress,
       reCAPTCHA_site_key: "6LdoQq8ZAAAAAPCCp-g1MCk597BPOAjGiR9MPXXs",
       SPOTIFY_TRACK_URI: `spotify:track:${SPOTIFY_TRACK_ID}`,
       SPOTIFY_TRACK_ID,

@@ -1,20 +1,19 @@
-import sanitize from "../services/sanitize";
+import sanitize from "../../services/sanitize";
 import { Component } from "react";
 import "isomorphic-fetch";
 import Link from "next/link";
+import Recaptcha from "react-google-invisible-recaptcha";
 import styles from "../styles/home.module.scss";
-import { CONST_MAILER_NATIVE } from "../services/constants";
-import { mailToHref } from "../components/email/template";
-import SmartUrlIcon from "../components/smartUrl/smartUrlIcon";
-import Meta from "../components/meta";
-import logger from "../services/logger";
-import SpotifyFollow from "../components/spotifyFollow";
-import Head from "next/head";
-import Share from "../components/share";
+import { CONST_MAILER_NATIVE } from "../../services/constants";
+import { mailToHref } from "./template";
+import SmartUrlIcon from "../smartUrl/smartUrlIcon";
+import Meta from "../meta";
+import logger from "../../services/logger";
+import SpotifyFollow from "../spotifyFollow";
 
 import getConfig from "next/config";
 const {
-  publicRuntimeConfig: { mail, smartUrls },
+  publicRuntimeConfig: { reCAPTCHA_site_key, mail, smartUrls },
 } = getConfig();
 
 const FILL_FORM = "FILL_FORM";
@@ -37,6 +36,7 @@ const Sender = class sender extends Component {
     super(props);
     this.state = defaultState;
 
+    this.onResolved = this.onResolved.bind(this);
     this.resetPage = this.resetPage.bind(this);
   }
 
@@ -58,6 +58,38 @@ const Sender = class sender extends Component {
     });
   };
 
+  async onResolved() {
+    const token = this.recaptcha.getResponse();
+
+    try {
+      const response = await fetch(`/api/recaptcha/${token}`, {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+
+      if (data.success) {
+        if (!data.passThreshold) {
+          //do something to verify email address of the sender
+        }
+
+        if (this.state.subscribeToMailingList) {
+          await this.subscribeToMailingList();
+        }
+
+        await this.sendEmail();
+      } else {
+        // not human
+        //do something to verify email address of the sender
+      }
+    } catch (error) {
+      logger.error(error);
+    }
+  }
+
   async subscribeToMailingList() {
     try {
       const response = await fetch(
@@ -72,6 +104,30 @@ const Sender = class sender extends Component {
       );
     } catch (error) {
       logger.error(error);
+    }
+  }
+
+  async sendEmail() {
+    this.setState({ status: EMAIL_SENT_PENDING });
+    try {
+      const response = await fetch("/api/email/send", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(this.state),
+      });
+      const data = await response.json();
+      data.success
+        ? this.setState({ status: EMAIL_SENT_SUCCESS })
+        : this.setState({
+            status: EMAIL_SENT_FAILED,
+            isEmailAddressBlocked: data.isBlocked,
+          });
+    } catch (error) {
+      logger.error(error);
+      this.setState({ status: EMAIL_SENT_FAILED });
     }
   }
 
@@ -92,21 +148,19 @@ const Sender = class sender extends Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
 
-    // this.setState({ toMessage: sanitize(this.state.toMessage) });
+    this.setState({ toMessage: sanitize(this.state.toMessage) });
 
-    // this.recaptcha.execute();
+    this.recaptcha.execute();
   };
 
-  urlToShare() {}
-
+  // force update
   form() {
     return (
       <div>
-        <Head></Head>
         <div style={{ maxWidth: "480px" }}>
           <fieldset>
             <legend style={{ fontWeight: 500 }}>Ever missed someone?</legend>
-            Send a musical message to someone special
+            Send a musical message to someone special.
           </fieldset>
         </div>
         <h2>The Song</h2>
@@ -117,7 +171,9 @@ const Sender = class sender extends Component {
           src="https://bandcamp.com/EmbeddedPlayer/track=3887074908/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/"
           seamless
         ></iframe>
-
+        <p style={{ fontWeight: 600 }}>
+          <span style={{ fontWeight: 400 }}>Listen here too...</span>
+        </p>
         <SmartUrlIcon {...smartUrls} />
         <div className={"container"}>
           <SpotifyFollow />
@@ -132,11 +188,61 @@ const Sender = class sender extends Component {
         </div>
         <div className={styles.slipContainer}>
           <h2 className={styles.slipTheSongHeading}>
-            Slip the song into a friends playlist
+            You too can slip the song into someone's playlist
           </h2>
+
+          <h3>How It Works</h3>
+          <ol>
+            <li>Fill in the form below.</li>
+            <li style={{ maxWidth: "480px" }}>
+              An email will be sent with your message and a link that slips the{" "}
+              <span style={{ fontStyle: "italic" }}>Playlist Tune</span> song
+              into their chosen playlist.
+            </li>
+          </ol>
           <form onSubmit={this.handleSubmit}>
             <fieldset>
-              {/* <legend>Your Details</legend> */}
+              <legend>Recipients Details</legend>
+              <div>
+                <label htmlFor="toName">To Name</label>
+                <input
+                  name="toName"
+                  type="text"
+                  id="toName"
+                  required
+                  data-name="toName"
+                  value={this.state.toName}
+                  onChange={this.handleChange}
+                ></input>
+              </div>
+              <div>
+                <label htmlFor="toEmail">To Email</label>
+                <input
+                  name="toEmail"
+                  type="email"
+                  id="toEmail"
+                  required
+                  data-name="toEmail"
+                  value={this.state.toEmail}
+                  onChange={this.handleChange}
+                ></input>
+                <div>
+                  <label htmlFor="toMessage">Message</label>
+                  <textarea
+                    name="toMessage"
+                    type="textarea"
+                    id="toMessage"
+                    rows="6"
+                    required
+                    data-name="toMessage"
+                    value={this.state.toMessage}
+                    onChange={this.handleChange}
+                  ></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Your Details</legend>
               <div>
                 <label htmlFor="name">Your Name</label>
                 <input
@@ -150,7 +256,19 @@ const Sender = class sender extends Component {
                   onChange={this.handleChange}
                 ></input>
               </div>
-              {/* <div className={"checkboxContainer"}>
+              <div>
+                <label htmlFor="email">Your Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  id="email"
+                  required
+                  data-name="fromEmail"
+                  value={this.state.fromEmail}
+                  onChange={this.handleChange}
+                ></input>
+              </div>
+              <div className={"checkboxContainer"}>
                 <input
                   name="subscribeToMailingList"
                   type="checkbox"
@@ -167,29 +285,25 @@ const Sender = class sender extends Component {
                   <br />
                   for email updates and news.
                 </label>
-              </div> */}
-
-              <div>
-                <label htmlFor="toName">Friends Name</label>
-                <input
-                  name="toName"
-                  type="text"
-                  id="toName"
-                  required
-                  data-name="toName"
-                  value={this.state.toName}
-                  onChange={this.handleChange}
-                ></input>
-              </div>
-              <div>
-                <div style={{ marginBottom: "10px" }}>Send via:</div>
-                <Share
-                  fromName={this.state.fromName}
-                  toName={this.state.toName}
-                  msg={this.state.msg}
-                />
               </div>
             </fieldset>
+            {this.sendButton()}
+
+            <Recaptcha
+              ref={(ref) => (this.recaptcha = ref)}
+              sitekey={reCAPTCHA_site_key}
+              onResolved={this.onResolved}
+              badge="inline"
+            />
+            <h3>How it'll look:</h3>
+            <div className={styles.container}>
+              <img
+                className={styles.exampleEmail}
+                src="/email-example.png"
+                alt="Example of the email message"
+              />
+            </div>
+            <br />
           </form>
         </div>
       </div>

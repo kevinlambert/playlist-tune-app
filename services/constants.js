@@ -6,3 +6,4 @@ export const CONST_LOG_LEVEL_INFO = "info";
 export const CONST_LOG_LEVEL_DEBUG = "debug";
 export const CONST_LOG_LEVEL_WARN = "warn";
 export const CONST_LOG_LEVEL_ERROR = "error";
+export const CONST_PERSONAL_MESSAGE_NONE = 0;
