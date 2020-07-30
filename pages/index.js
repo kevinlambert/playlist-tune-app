@@ -122,14 +122,7 @@ const Sender = class sender extends Component {
         <div className={"container"}>
           <SpotifyFollow />
         </div>
-        <div style={{ maxWidth: "480px", marginTop: "20px" }}>
-          <p style={{ fontSize: "14px", color: "grey" }}>
-            Created by Singer-Songwriter{" "}
-            <a href="https://kevinlambertmusic.com" target="_blank">
-              Kevin Lambert
-            </a>
-          </p>
-        </div>
+
         <div className={styles.slipContainer}>
           <h2 className={styles.slipTheSongHeading}>
             Slip the song into a friends playlist
