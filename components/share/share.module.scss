@@ -49,3 +49,21 @@
     display: none;
   }
 }
+
+input[type="text"].copyShareLink {
+  // font-size: 14px;
+  // height: 30px;
+  // margin: 20px 0 0 0;
+  // padding: 6px 6px 6px 12px;
+  // background-color: #fdfddf;
+  // border-color: gray;
+  // color: gray;
+
+  // hide input
+  height: 0;
+  width: 0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}

@@ -5,6 +5,7 @@ import CookieBanner from "./cookie-banner";
 import GoogleAnalytics from "./googleAnalytics";
 import SocialShare from "./socialShare";
 import Hotjar from "./hotjar";
+import Meta from "./meta";
 
 export const siteTitle = "Playlist Tune";
 
@@ -27,6 +28,7 @@ const Layout = ({ children, router }) => {
         <link rel="icon" href="/favicon-192x192.png" sizes="192x192"></link>
         <link rel="apple-touch-icon" href="/favicon-180x180.png"></link>
       </Head>
+      <Meta />
       <GoogleAnalytics />
       <header className={styles.header}>
         <Link href="/">
