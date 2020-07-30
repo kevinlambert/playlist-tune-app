@@ -2,6 +2,7 @@ import styles from "./share.module.scss";
 
 const copyLink = (e) => {
   var copyText = document.getElementById("COPY_SHARE_LINK_ID");
+  copyText.style.display = "block";
 
   copyText.select();
   copyText.setSelectionRange(0, 99999);

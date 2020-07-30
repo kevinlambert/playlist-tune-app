@@ -43,6 +43,8 @@ export default ({
       <CopyLink />
     </div>
     <input
+      style={{ display: "none" }}
+      readOnly
       className={styles.copyShareLink}
       id="COPY_SHARE_LINK_ID"
       type="text"
