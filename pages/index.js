@@ -1,10 +1,12 @@
 import { Component } from "react";
 import "isomorphic-fetch";
+import Link from "next/link";
 import styles from "../styles/home.module.scss";
 import SmartUrlIcon from "../components/smartUrl/smartUrlIcon";
 import SpotifyFollow from "../components/spotifyFollow";
 import { CONST_PERSONAL_MESSAGE__NONE } from "../services/constants";
 import Share from "../components/share";
+import PersonalNoteSelector from "../components/personalNote/selector";
 
 import getConfig from "next/config";
 const {
@@ -21,10 +23,15 @@ const Sender = class sender extends Component {
     this.state = defaultState;
 
     this.resetPage = this.resetPage.bind(this);
+    this.personalNoteChange = this.personalNoteChange.bind(this);
   }
 
   resetPage() {
     this.setState(defaultState);
+  }
+
+  personalNoteChange(e) {
+    this.setState({ msg: e.target.value });
   }
 
   render() {
@@ -56,20 +63,38 @@ const Sender = class sender extends Component {
               Slip the song into a friends playlist
             </legend>
             <div>
-              <div style={{ lineHeight: "1em" }}>
+              <p style={{ lineHeight: "1em" }}>
                 1. Choose a personal note:{" "}
                 <span style={{ fontSize: "12px", color: "#666666" }}>
                   (optional)
                 </span>
-              </div>
+              </p>
+              <PersonalNoteSelector onChange={this.personalNoteChange} />
             </div>
             <div>
               <div style={{ marginBottom: "10px", maxWidth: "400px" }}>
-                2. Select an app to attach the special link
+                <p>
+                  2. Select an app to share the special link. <br />
+                  <span className={styles.appShareExplaination}>
+                    They'll be shown your personal note and the song slipped
+                    into their chosen playlist.
+                  </span>
+                </p>
               </div>
               <Share msg={this.state.msg} />
             </div>
           </fieldset>
+          <p
+            className={styles.appShareExplaination}
+            style={{ marginTop: "40px", textAlign: "center" }}
+          >
+            <Link href="/terms">
+              <a style={{ color: "#464646", textDecoration: "underline" }}>
+                Terms and conditions
+              </a>
+            </Link>{" "}
+            apply. By using this website and sharing you accept these.
+          </p>
         </div>
       </div>
     );

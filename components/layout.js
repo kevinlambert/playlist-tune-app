@@ -66,6 +66,10 @@ const Layout = ({ children, router }) => {
           <Link href="/privacy-policy">
             <a>Privacy</a>
           </Link>
+          {" | "}
+          <Link href="/terms">
+            <a>Terms</a>
+          </Link>
         </nav>
         <br />
         <p>

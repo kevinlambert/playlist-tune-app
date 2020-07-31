@@ -10,28 +10,28 @@ import {
 const FistBumpMessage = () => (
   <div>
     <div>Fist Bump</div>
-    <div style={{ fontSize: "42px", marginTop: "16px" }}>👊</div>
+    <div className={styles.emoticon}>👊</div>
   </div>
 );
 
 const ILoveYouMessage = () => (
   <div>
     <div>I Love You</div>
-    <div style={{ fontSize: "42px", marginTop: "16px" }}>❤️</div>
+    <div className={styles.emoticon}>❤️</div>
   </div>
 );
 
 const ThinkingOfYouMessage = () => (
   <div>
     <div>Thinking of You</div>
-    <div style={{ fontSize: "42px", marginTop: "16px" }}>😊</div>
+    <div className={styles.emoticon}>😊</div>
   </div>
 );
 
 const IMissYouMessage = () => (
   <div>
     <div>I Miss You</div>
-    <div style={{ fontSize: "42px", marginTop: "16px" }}>🤗</div>
+    <div className={styles.emoticon}>🤗</div>
   </div>
 );
 

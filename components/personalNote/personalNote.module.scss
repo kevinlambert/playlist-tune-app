@@ -4,6 +4,11 @@
   transform: rotate3d(0, 0, 1, -3deg);
 }
 
+.emoticon {
+  font-size: 1.7em;
+  margin-top: 16px;
+}
+
 $postitSize: 250px;
 
 .postit {
@@ -19,7 +24,7 @@ $postitSize: 250px;
   max-height: $postitSize;
   position: relative;
   border: 1px solid #e8e8e8;
-  font-size: 22px;
+  font-size: 38px;
   border-bottom-right-radius: 60px 5px;
 
   background: #ffff88; /* Old browsers */
