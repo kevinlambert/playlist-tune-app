@@ -33,7 +33,9 @@ const Layout = ({ children, router }) => {
       <header className={styles.header}>
         <Link href="/">
           <a className={styles.stealthLink}>
-            <h1 className={styles.title}>Playlist Tune</h1>
+            <h1 className={styles.title}>
+              Playlist Tune<span className={styles.dotCom}>.com</span>
+            </h1>
 
             <p className={styles.callToAction}>
               <span className={styles.callToActionFirstLine}>

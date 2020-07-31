@@ -60,8 +60,11 @@ const Sender = class sender extends Component {
         <div className={styles.slipContainer}>
           <fieldset>
             <legend className={styles.slipTheSongHeading}>
-              Slip the song into a friends playlist
+              Touch someone today.
+              <br />
+              Slip the song into a friend's playlist
             </legend>
+
             <div>
               <p style={{ lineHeight: "1em" }}>
                 1. Choose a personal note:{" "}

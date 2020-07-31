@@ -6,6 +6,7 @@ import SmartUrl from "../../components/smartUrl";
 import styles from "../../components/receiver.module.scss";
 import AboutTheArtist from "../../components/aboutTheArtist";
 import PersonalNote from "../../components/personalNote";
+import { CONST_PERSONAL_MESSAGE__NONE } from "../../services/constants";
 
 import getConfig from "next/config";
 const {
@@ -26,33 +27,33 @@ const Explaination = () => (
   </div>
 );
 
-const Prompt = ({ fromName, toName }) => {
-  const To = () =>
-    toName ? (
-      <span>
-        Hey <strong>{toName}</strong>
-      </span>
-    ) : (
-      <span>Hey,</span>
-    );
+const To = ({ toName }) =>
+  toName ? (
+    <span>
+      Hey <strong>{toName}</strong>,
+    </span>
+  ) : (
+    <span>Hey,</span>
+  );
 
-  const From = () =>
-    fromName ? (
-      <span>
-        <strong>{fromName}</strong> wants to slip a song into your playlist.
-      </span>
-    ) : (
-      <span>Your friend wants to slip a song into your playlist.</span>
-    );
+const From = ({ fromName, msg }) => {
+  const partial =
+    parseInt(msg) !== CONST_PERSONAL_MESSAGE__NONE
+      ? "sent you this message and"
+      : "";
 
-  return (
-    <div className={styles.promptContainer}>
-      <p>
-        <To />
-        <br />
-        <From />
-      </p>
-    </div>
+  return fromName ? (
+    <span>
+      <strong>{fromName}</strong> {partial}
+      <br />
+      wants to slip a song into your playlist.
+    </span>
+  ) : (
+    <span>
+      Your friend {partial}
+      <br />
+      wants to slip a song into your playlist.
+    </span>
   );
 };
 
@@ -166,8 +167,15 @@ export default class extends Component {
         </Head>
 
         <main>
-          <Prompt fromName={this.props.fromName} toName={this.props.toName} />
-          <PersonalNote msg={this.props.msg} />
+          <div className={styles.promptContainer}>
+            <To toName={this.props.toName} />
+          </div>
+          <div style={{ margin: "20px 0 30px 0" }}>
+            <PersonalNote msg={this.props.msg} />
+          </div>
+          <div className={styles.promptContainer}>
+            <From fromName={this.props.fromName} msg={this.props.msg} />
+          </div>
           <Receiver />
           <NotOnPlatform />
         </main>

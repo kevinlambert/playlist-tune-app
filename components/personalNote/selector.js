@@ -23,6 +23,15 @@ export default ({ onChange }) => (
         onChange={onChange}
         type="radio"
         name="personalNote"
+        value={CONST_PERSONAL_MESSAGE__FIST_BUMP}
+      />
+      <img src="/notes/fist-bump.png" />
+    </label>
+    <label>
+      <input
+        onChange={onChange}
+        type="radio"
+        name="personalNote"
         value={CONST_PERSONAL_MESSAGE__THINKING_OF_YOU}
       />
       <img src="/notes/thinking-of-you.png" />
@@ -44,15 +53,6 @@ export default ({ onChange }) => (
         value={CONST_PERSONAL_MESSAGE__I_LOVE_YOU}
       />
       <img src="/notes/i-love-you.png" />
-    </label>
-    <label>
-      <input
-        onChange={onChange}
-        type="radio"
-        name="personalNote"
-        value={CONST_PERSONAL_MESSAGE__FIST_BUMP}
-      />
-      <img src="/notes/fist-bump.png" />
     </label>
   </div>
 );
