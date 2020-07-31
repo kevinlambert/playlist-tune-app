@@ -1,5 +1,5 @@
 import styles from "./share.module.scss";
-import classNames from "classNames";
+import classNames from "classnames";
 
 export default ({
   onClick,
