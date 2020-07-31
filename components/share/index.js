@@ -3,6 +3,7 @@ import FacebookMessenger from "./facebookMessenger";
 import Email from "./email";
 import Sms from "./sms";
 import CopyLink from "./copyLink";
+import Snapchat from "./snapchat";
 import { CONST_PERSONAL_MESSAGE__NONE } from "../../services/constants";
 import getConfig from "next/config";
 import styles from "./share.module.scss";
@@ -19,10 +20,15 @@ export const receiverUrl = ({ fromName, toName, msg = 0 }, noEncode) => {
 export const title = ({ toName }) => `Hey, I'm sending you a song message`;
 
 export const slipMessage = ({ fromName, toName, msg }, noEncode) => {
+  const firstLine = toName ? `Hey ${toName},\r` : `Hey,\r`;
+  const secondLine =
+    msg === CONST_PERSONAL_MESSAGE__NONE
+      ? `I want to slip a song into your playlist. Click the link.\r`
+      : `I sent you a message and want to slip a song into your playlist. Click the link.\r\r`;
+
   return (
-    encodeURIComponent(`Hey ${toName}\r
-I want to slip a song into your playlist.
-\r`) + receiverUrl({ fromName, toName, msg })
+    encodeURIComponent(firstLine + secondLine) +
+    receiverUrl({ fromName, toName, msg })
   );
 };
 
@@ -33,6 +39,7 @@ export default ({
 }) => (
   <div>
     <div className={styles.container}>
+      <Snapchat link={receiverUrl({ fromName, toName, msg })} />
       <WhatsApp message={slipMessage({ fromName, toName, msg }, true)} />
       <FacebookMessenger link={receiverUrl({ fromName, toName, msg })} />
       <Sms message={slipMessage({ fromName, toName, msg })} />
