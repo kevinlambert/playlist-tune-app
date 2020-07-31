@@ -36,10 +36,8 @@ export default class extends Component {
           style={{ display: this.state.isOpen ? "block" : "none" }}
         >
           <p>
-            From the sunny shores of South Africa, Singer-Songwriter Kevin
-            Lambert released multiple singles this year. This one's his latest.
-            His music has a relaxed living room feel with a similar sound to
-            Jason Mraz and Noah Kahan.
+            Singer-Songwriter Kevin Lambert's music has a relaxed living room
+            feel similar to Jason Mraz and Noah Kahan.
           </p>
           <p>
             With a happy sunny summer vibe, this acoustic song will have you
