@@ -7,6 +7,7 @@ import styles from "../../components/receiver.module.scss";
 import AboutTheArtist from "../../components/aboutTheArtist";
 import PersonalNote from "../../components/personalNote";
 import { CONST_PERSONAL_MESSAGE__NONE } from "../../services/constants";
+import ImageMeta from "../../components/meta/receiverImage";
 
 import getConfig from "next/config";
 const {
@@ -165,6 +166,7 @@ export default class extends Component {
         <Head>
           <title>PlaylistTune.com - Platforms</title>
         </Head>
+        <ImageMeta />
 
         <main>
           <div className={styles.promptContainer}>

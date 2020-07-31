@@ -7,6 +7,7 @@ import SpotifyFollow from "../components/spotifyFollow";
 import { CONST_PERSONAL_MESSAGE__NONE } from "../services/constants";
 import Share from "../components/share";
 import PersonalNoteSelector from "../components/personalNote/selector";
+import ImageMeta from "../components/meta/homeImage";
 
 import getConfig from "next/config";
 const {
@@ -107,6 +108,7 @@ const Sender = class sender extends Component {
 export default function Home() {
   return (
     <div className={styles.container}>
+      <ImageMeta />
       <Sender />
     </div>
   );

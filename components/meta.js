@@ -19,21 +19,7 @@ export default () => {
       />
       <meta property="og:url" content="https://playlisttune.com" />
       <meta property="og:site_name" content="Playlist Tune" />
-      <meta
-        property="og:image"
-        content="https://playlisttune.com/playlist-tune-single-cover.jpg"
-      />
-      <meta
-        property="og:image:secure_url"
-        content="https://playlisttune.com/playlist-tune-single-cover.jpg"
-      />
-      <meta property="og:image:width" content="1500" />
-      <meta property="og:image:height" content="1500" />
-      <meta
-        property="og:image:alt"
-        content="Kevin Lambert - Playlist Tune Song"
-      />
-      <meta property="og:image:type" content="image/jpeg" />
+
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Playlist Tune" />
       <meta
