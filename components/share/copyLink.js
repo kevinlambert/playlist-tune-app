@@ -1,4 +1,4 @@
-import styles from "./share.module.scss";
+import Icon from "./icon";
 
 const copyLink = (e) => {
   var copyText = document.getElementById("COPY_SHARE_LINK_ID");
@@ -10,11 +10,11 @@ const copyLink = (e) => {
 };
 
 export default ({ message }) => (
-  <a
+  <Icon
     onClick={copyLink}
-    className={styles.icon}
-    style={{ backgroundColor: "#0070f3" }}
-  >
-    <img src="/share/link.svg" alt="copy link" />
-  </a>
+    backgroundColor="#0070f3"
+    src="/share/link.svg"
+    alt="copy the link"
+    text="Copy Link"
+  />
 );

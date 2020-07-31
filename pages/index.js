@@ -3,7 +3,7 @@ import "isomorphic-fetch";
 import styles from "../styles/home.module.scss";
 import SmartUrlIcon from "../components/smartUrl/smartUrlIcon";
 import SpotifyFollow from "../components/spotifyFollow";
-import { CONST_PERSONAL_MESSAGE_NONE } from "../services/constants";
+import { CONST_PERSONAL_MESSAGE__NONE } from "../services/constants";
 import Share from "../components/share";
 
 import getConfig from "next/config";
@@ -12,7 +12,7 @@ const {
 } = getConfig();
 
 const defaultState = {
-  msg: CONST_PERSONAL_MESSAGE_NONE,
+  msg: CONST_PERSONAL_MESSAGE__NONE,
 };
 
 const Sender = class sender extends Component {
@@ -56,15 +56,16 @@ const Sender = class sender extends Component {
               Slip the song into a friends playlist
             </legend>
             <div>
+              <div style={{ lineHeight: "1em" }}>
+                1. Choose a personal note:{" "}
+                <span style={{ fontSize: "12px", color: "#666666" }}>
+                  (optional)
+                </span>
+              </div>
+            </div>
+            <div>
               <div style={{ marginBottom: "10px", maxWidth: "400px" }}>
-                <ol>
-                  <li>Click an app below.</li>
-                  <li>A link will be attached to your message.</li>
-                  <li>
-                    When your friend clicks the link the song will be slipped in
-                    their chosen playlist.
-                  </li>
-                </ol>
+                2. Select an app to attach the special link
               </div>
               <Share msg={this.state.msg} />
             </div>

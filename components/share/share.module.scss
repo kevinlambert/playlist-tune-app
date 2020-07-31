@@ -6,6 +6,18 @@
   justify-content: space-around;
 }
 
+.iconContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 4px 16px 4px;
+  width: 75px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
 .icon {
   display: flex;
   width: 45px;
@@ -14,23 +26,34 @@
   border-radius: 10px;
   box-shadow: 1px 2px 4px #808080cc;
   cursor: pointer;
-  margin: 0 10px 16px 10px;
 
   img {
     width: 100%;
   }
 }
 
+.iconText {
+  font-size: 0.7em;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: black;
+  text-decoration: none;
+  margin-top: 4px;
+  word-wrap: break-word;
+  text-align: center;
+  line-height: 1.25em;
+}
+
 .desktopOnly {
   display: none;
 
   @include respond-to("large") {
-    display: inherit;
+    display: flex;
   }
 }
 
 .deviceOnly {
-  display: inherit;
+  display: flex;
 
   @include respond-to("large") {
     display: none;

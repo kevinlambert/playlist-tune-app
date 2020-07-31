@@ -1,4 +1,4 @@
-import styles from "./share.module.scss";
+import Icon from "./icon";
 import { Component } from "react";
 import { isApple } from "../../services/device";
 
@@ -17,17 +17,17 @@ export default class extends Component {
 
   render() {
     return (
-      <a
+      <Icon
         href={
           this.state.isApple
             ? `sms://open?addresses=+&body=${this.props.message}`
             : `sms:+?body=${this.props.message}`
         }
-        className={styles.icon}
-        style={{ backgroundColor: "#ffbd00" }}
-      >
-        <img src="/share/sms.svg" alt="share by sms" />
-      </a>
+        backgroundColor="#ffbd00"
+        src="/share/sms.svg"
+        alt="share by sms"
+        text="SMS / iMessage"
+      />
     );
   }
 }

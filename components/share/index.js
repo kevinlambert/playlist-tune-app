@@ -3,7 +3,7 @@ import FacebookMessenger from "./facebookMessenger";
 import Email from "./email";
 import Sms from "./sms";
 import CopyLink from "./copyLink";
-import { CONST_PERSONAL_MESSAGE_NONE } from "../../services/constants";
+import { CONST_PERSONAL_MESSAGE__NONE } from "../../services/constants";
 import getConfig from "next/config";
 import styles from "./share.module.scss";
 
@@ -29,7 +29,7 @@ I want to slip a song into your playlist.
 export default ({
   fromName = "",
   toName = "",
-  msg = CONST_PERSONAL_MESSAGE_NONE,
+  msg = CONST_PERSONAL_MESSAGE__NONE,
 }) => (
   <div>
     <div className={styles.container}>

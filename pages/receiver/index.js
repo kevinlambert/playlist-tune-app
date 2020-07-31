@@ -5,6 +5,7 @@ import "isomorphic-fetch";
 import SmartUrl from "../../components/smartUrl";
 import styles from "../../components/receiver.module.scss";
 import AboutTheArtist from "../../components/aboutTheArtist";
+import PersonalNote from "../../components/personalNote";
 
 import getConfig from "next/config";
 const {
@@ -25,16 +26,35 @@ const Explaination = () => (
   </div>
 );
 
-const Prompt = ({ fromName, toName }) => (
-  <div className={styles.promptContainer}>
-    {fromName && toName ? (
-      <p>
-        Hey <strong>{toName}</strong>,<br />
+const Prompt = ({ fromName, toName }) => {
+  const To = () =>
+    toName ? (
+      <span>
+        Hey <strong>{toName}</strong>
+      </span>
+    ) : (
+      <span>Hey,</span>
+    );
+
+  const From = () =>
+    fromName ? (
+      <span>
         <strong>{fromName}</strong> wants to slip a song into your playlist.
+      </span>
+    ) : (
+      <span>Your friend wants to slip a song into your playlist.</span>
+    );
+
+  return (
+    <div className={styles.promptContainer}>
+      <p>
+        <To />
+        <br />
+        <From />
       </p>
-    ) : null}
-  </div>
-);
+    </div>
+  );
+};
 
 const SelectPlatform = (platformSelected) => {
   return (
@@ -133,9 +153,9 @@ export default class extends Component {
   }
 
   static async getInitialProps({ query }) {
-    const { fromName, toName } = query;
+    const { fromName, toName, msg } = query;
 
-    return { fromName, toName };
+    return { fromName, toName, msg };
   }
 
   render() {
@@ -147,6 +167,7 @@ export default class extends Component {
 
         <main>
           <Prompt fromName={this.props.fromName} toName={this.props.toName} />
+          <PersonalNote msg={this.props.msg} />
           <Receiver />
           <NotOnPlatform />
         </main>

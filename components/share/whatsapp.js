@@ -1,11 +1,11 @@
-import styles from "./share.module.scss";
+import Icon from "./icon";
 
 export default ({ message }) => (
-  <a
+  <Icon
     href={`whatsapp://send?text=${message}`}
-    className={styles.icon}
-    style={{ backgroundColor: "rgb(77, 194, 71)" }}
-  >
-    <img src="/share/whatsapp.svg" alt="share on whatsapp" />
-  </a>
+    backgroundColor="rgb(77, 194, 71)"
+    src="/share/whatsapp.svg"
+    alt="share on whatsapp"
+    text="WhatsApp"
+  />
 );

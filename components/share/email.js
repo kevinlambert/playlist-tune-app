@@ -1,11 +1,11 @@
-import styles from "./share.module.scss";
+import Icon from "./icon";
 
 export default ({ subject, body }) => (
-  <a
+  <Icon
     href={`mailto:?subject=${subject}&body=${body}`}
-    className={styles.icon}
-    style={{ backgroundColor: "rgb(88, 88, 88)" }}
-  >
-    <img src="/share/email.svg" alt="share by email" />
-  </a>
+    backgroundColor="rgb(88, 88, 88)"
+    src="/share/email.svg"
+    alt="share by email"
+    text="Email"
+  />
 );
