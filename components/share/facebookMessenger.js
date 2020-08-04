@@ -12,7 +12,6 @@ export default ({ link }) => (
       src="/share/messenger.svg"
       alt="share on facebook messenger"
       text="Facebook Messenger"
-      target="_blank"
     />
   </>
 );
