@@ -7,16 +7,7 @@ const redirect_uri = encodeURIComponent("https://playlisttune.com");
 export default ({ link }) => (
   <>
     <Icon
-      href={`fb-messenger://share/?link=&${link}&app_id=${appId}”`}
-      className={styles.deviceOnly}
-      backgroundColor="rgb(0, 132, 255)"
-      src="/share/messenger.svg"
-      alt="share on facebook messenger"
-      text="Facebook Messenger"
-    />
-    <Icon
       href={`https://www.facebook.com/dialog/send?app_id=${appId}&link=${link}&redirect_uri=${redirect_uri}`}
-      className={styles.desktopOnly}
       backgroundColor="rgb(0, 132, 255)"
       src="/share/messenger.svg"
       alt="share on facebook messenger"
@@ -25,3 +16,13 @@ export default ({ link }) => (
     />
   </>
 );
+// className={styles.desktopOnly}
+
+// <Icon
+// href={`fb-messenger://share/?link=&${link}&app_id=${appId}”`}
+// className={styles.deviceOnly}
+// backgroundColor="rgb(0, 132, 255)"
+// src="/share/messenger.svg"
+// alt="share on facebook messenger"
+// text="Facebook Messenger"
+// />

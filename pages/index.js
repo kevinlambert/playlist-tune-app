@@ -67,20 +67,32 @@ const Sender = class sender extends Component {
             </legend>
 
             <div>
-              <p style={{ lineHeight: "1em" }}>
+              <p style={{ lineHeight: "1em", fontWeight: 600 }}>
                 1. Choose a personal note:{" "}
-                <span style={{ fontSize: "12px", color: "#666666" }}>
+                <span
+                  style={{
+                    fontSize: "12px",
+                    color: "#666666",
+                    fontWeight: 400,
+                  }}
+                >
                   (optional)
                 </span>
               </p>
               <PersonalNoteSelector onChange={this.personalNoteChange} />
             </div>
             <div>
-              <div style={{ marginBottom: "10px", maxWidth: "400px" }}>
+              <div
+                style={{
+                  marginBottom: "10px",
+                  maxWidth: "400px",
+                  fontWeight: 600,
+                }}
+              >
                 <p>
                   2. Select an app to share the special link. <br />
                   <span className={styles.appShareExplaination}>
-                    They'll be shown your personal note and the song slipped
+                    Your friend will see your personal note and the song slipped
                     into their chosen playlist.
                   </span>
                 </p>

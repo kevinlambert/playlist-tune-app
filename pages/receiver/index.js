@@ -171,13 +171,12 @@ export default class extends Component {
         <main>
           <div className={styles.promptContainer}>
             <To toName={this.props.toName} />
-          </div>
-          <div style={{ margin: "20px 0 30px 0" }}>
-            <PersonalNote msg={this.props.msg} />
-          </div>
-          <div className={styles.promptContainer}>
             <From fromName={this.props.fromName} msg={this.props.msg} />
           </div>
+          <div style={{ margin: "20px 0 10px 0" }}>
+            <PersonalNote msg={this.props.msg} />
+          </div>
+
           <Receiver />
           <NotOnPlatform />
         </main>
