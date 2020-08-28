@@ -24,13 +24,6 @@ module.exports = () => {
   return {
     env,
     serverRuntimeConfig: {
-      mail: {
-        sendGridApiKey: "llGIFFrLM9RvCJhRBJBJPg",
-        smtpUsername: process.env.SMTP_USERNAME,
-        smtpPassword: process.env.SMTP_PASSWORD,
-        playlistTuneEmail: "noreply@playlisttune.com",
-        mailer: process.env.MAILER,
-      },
       mailingList: {
         convertKitApiKey: "llGIFFrLM9RvCJhRBJBJPg",
       },
@@ -44,10 +37,6 @@ module.exports = () => {
         spotifyRedirectUri: `${env.SERVER_ADDRESS}/receiver/spotifyAuth`,
         SPOTIFY_ACCESS_TOKEN_COOKIE: "sfyac",
         SPOTIFY_REFRESH_TOKEN_COOKIE: "sfyrc",
-      },
-      mongo: {
-        url: process.env.DATABASE_URI,
-        databaseName: "playlist-tune-app",
       },
     },
     publicRuntimeConfig: {
@@ -80,9 +69,6 @@ module.exports = () => {
       },
       urls: {
         block: `https://playlisttune.com/block/`,
-      },
-      mail: {
-        mailer: process.env.MAILER,
       },
     },
   };

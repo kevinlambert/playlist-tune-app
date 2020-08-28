@@ -6,13 +6,7 @@ const {
 import SmartUrlIcon from "../../components/smartUrl/smartUrlIcon";
 import blankLayout from "../../components/layouts/blank";
 
-const stores = () => (
-  <html>
-    <body>
-      <SmartUrlIcon {...smartUrls} />
-    </body>
-  </html>
-);
+const stores = () => <SmartUrlIcon {...smartUrls} />;
 
 stores.Layout = blankLayout;
 
