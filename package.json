@@ -21,7 +21,7 @@
     "react-google-invisible-recaptcha": "^0.2.11",
     "react-hotjar": "^2.2.1",
     "react-social-sharing": "^3.3.0",
-    "sass": "^1.29.0",
+    "sass": "^1.30.0",
     "spotify-web-api-node": "^4.0.0"
   }
 }
