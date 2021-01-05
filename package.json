@@ -13,15 +13,15 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "isomorphic-fetch": "^3.0.0",
-    "next": "^10.0.1",
+    "next": "^10.0.4",
     "nookies": "^2.5.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-ga": "^3.2.1",
+    "react-ga": "^3.3.0",
     "react-google-invisible-recaptcha": "^0.2.11",
     "react-hotjar": "^2.2.1",
     "react-social-sharing": "^3.3.0",
-    "sass": "^1.29.0",
+    "sass": "^1.32.0",
     "spotify-web-api-node": "^4.0.0"
   }
 }
